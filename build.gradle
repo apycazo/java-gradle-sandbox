@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java-library'
+
+group 'es.jander.sandbox'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // logging
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "org.apache.logging.log4j:log4j-core:${log4j2Version}"
+    implementation "org.apache.logging.log4j:log4j-api:${log4j2Version}"
+    implementation "org.apache.logging.log4j:log4j-slf4j-impl:${log4j2Version}"
+    // serialization
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    // spring framework
+    implementation "org.springframework:spring-tx:${springVersion}"
+    implementation "org.springframework:spring-orm:${springVersion}"
+    implementation("org.springframework:spring-context:${springVersion}")
+    implementation("org.springframework:spring-test:${springVersion}")
+    // spring test
+    testImplementation "org.springframework:spring-test:${springVersion}"
+    // testing
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+    testImplementation("org.junit.platform:junit-platform-engine:${junitPlatformVersion}")
+    testImplementation("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+    testImplementation("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+}
